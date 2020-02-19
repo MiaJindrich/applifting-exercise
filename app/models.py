@@ -17,6 +17,11 @@ class Product(db.Model):
         }
         return data
 
+    def from_dict(self, data, new_product=False):
+        for field in ['name', 'description']:
+            if field in data:
+                setattr(self, field, data[field])
+
 class Offer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Integer)
