@@ -28,6 +28,8 @@ def create_product():
     product.from_dict(data=new_product)
     db.session.add(product)
     db.session.commit()
+    # ... zaregistrovat nový produkt - zavolam si tu metodu register_new_project
+
     response = jsonify(product.to_dict())
     response.status_code = 201
     return response
