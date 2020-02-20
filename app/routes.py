@@ -1,6 +1,7 @@
 from app import app, db
 from flask import jsonify, request
 from .models import Product, Offer
+from .offer_microservice import OfferMicroservice
 
 @app.route('/')
 def check():
@@ -28,9 +29,10 @@ def create_product():
     product.from_dict(data=new_product)
     db.session.add(product)
     db.session.commit()
-    # ... zaregistrovat nový produkt - zavolam si tu metodu register_new_project
-
-    response = jsonify(product.to_dict())
+    # ... zaregistrovat nový produkt - zavolam si tu metodu register_new_product
+    data = product.to_dict()
+    service.register_new_product(data)
+    response = jsonify(data)
     response.status_code = 201
     return response
 

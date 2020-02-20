@@ -16,8 +16,9 @@ from .offer_microservice import OfferMicroservice
 sched = Scheduler()
 sched.start()
  
-service = OfferMicroservice()
-sched.add_interval_job(service.fetch_data_from_api(), minutes=1)
+service = OfferMicroservice(app.config['BASE_URL'])
+service.fetch_data_from_api()
+# sched.add_interval_job(service.fetch_data_from_api, minutes=1)
 
 from app import routes
 
