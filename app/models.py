@@ -17,7 +17,7 @@ class Product(db.Model):
         }
         return data
 
-    def from_dict(self, data, new_product=False):
+    def from_dict(self, data):
         for field in ['name', 'description']:
             if field in data:
                 setattr(self, field, data[field])
