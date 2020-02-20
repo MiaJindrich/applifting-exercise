@@ -22,6 +22,12 @@ class Product(db.Model):
             if field in data:
                 setattr(self, field, data[field])
 
+    def to_collection_dict(items):
+        data = {
+            'products': [item.to_dict() for item in items],
+        }
+        return data
+
 class Offer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Integer)

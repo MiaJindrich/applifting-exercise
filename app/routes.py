@@ -8,8 +8,8 @@ def check():
 
 @app.route('/api/products', methods=['GET'])
 def get_products():
-    products = Product.query.all()
-    return jsonify({'products': products})
+    products = Product.to_collection_dict(Product.query.all())
+    return jsonify(products)
 
 '''@app.route('/api/products/<int:product_id', methods=['GET'])
 def get_product(product_id):
