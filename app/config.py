@@ -5,4 +5,4 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    BASE_URL = os.environ.get('OFFERS_BASE_URL')
+    BASE_URL = os.environ.get('BASE_URL')

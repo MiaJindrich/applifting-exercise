@@ -32,7 +32,7 @@ class Offer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Integer)
     items_in_stock = db.Column(db.Integer)
-    external_offer_id = db.Column(db.Integer, unique=True)
+    external_offer_id = db.Column(db.Integer)
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
 
     def __repr__(self):
